@@ -133,6 +133,7 @@ end
 | Rust                                | `rust_analyzer`          |
 | SQL                                 | `sqlls`                  |
 | SQL                                 | `sqls`                   |
+| Sorbet                              | `sorbet`                 |
 | Stylelint                           | `stylelint_lsp`          |
 | Svelte                              | `svelte`                 |
 | Tailwind CSS                        | `tailwindcss`            |
