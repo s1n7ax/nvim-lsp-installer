@@ -124,21 +124,6 @@ Lua:  vim.g.lsp_installer_allow_federated_servers
 ==============================================================================
 Lua module: nvim-lsp-installer
 
-                                               *nvim-lsp-installer.install()*
-install({server_name})
-        Installs the provided {server_name}. If {server_name} is already installed, it
-        is reinstalled.
-
-        Parameters: ~
-            {server_name} (string) The server to install.
-
-                                             *nvim-lsp-installer.uninstall()*
-uninstall({server_name})
-        Uninstalls the provided {server_name}.
-
-        Parameters: ~
-            {server_name} (string) The server to uninstall.
-
                                        *nvim-lsp-installer.on_server_ready()*
 on_server_ready({cb})
         Registers a callback to be executed each time a server is
@@ -155,6 +140,39 @@ on_server_ready({cb})
         Return: ~
             Returns a function which when called will de-register the
             cb} from any future dispatches.
+
+                                       *nvim-lsp-installer.require_servers()*
+require_servers({server_names})
+        Makes sure that each server in the provided list of {server_names} is
+        installed. If an entry in the {server_names} list is already
+        installed, it is NOT reinstalled.
+
+        Parameters: ~
+            {server_names} (table) List table of servers.
+
+
+                                               *nvim-lsp-installer.install()*
+install({server_name})
+        Installs the provided {server_name}. If {server_name} is already
+        installed, it is reinstalled.
+
+        Parameters: ~
+            {server_name} (string) The server to install.
+
+                                             *nvim-lsp-installer.uninstall()*
+uninstall({server_name})
+        Uninstalls the provided {server_name}.
+
+        Parameters: ~
+            {server_name} (string) The server to uninstall.
+
+                                         *nvim-lsp-installer.uninstall_all()*
+uninstall_all()
+        Uninstalls all installed servers.
+
+                                       *nvim-lsp-installer.open_status_win()*
+open_status_win()
+        Opens the status window UI.
 
 ==============================================================================
 Lua module: nvim-lsp-installer.servers           *nvim-lsp-installer.servers*

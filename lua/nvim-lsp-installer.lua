@@ -6,8 +6,19 @@ local servers = require "nvim-lsp-installer.servers"
 
 local M = {}
 
-function M.display()
+function M.open_status_win()
     status_win().open()
+end
+
+function M.require_servers(server_names)
+    for i = 1, #server_names do
+        local server_name = server_names[i]
+        local ok, server = servers.get_server(server_name)
+        if ok and not server:is_installed() then
+            notify(("Installing %q. (use :LspInstallInfo to see progress)"):format(server.name))
+            status_win().install_server(server)
+        end
+    end
 end
 
 function M.install(server_name)

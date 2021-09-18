@@ -79,6 +79,20 @@ lsp_installer.on_server_ready(function(server)
 end)
 ```
 
+A common use case is to make sure a set of servers are installed, if they already aren't, when starting neovim.
+nvim-lsp-installer provides a utility function, `require_servers` for achieving this. Any servers provided that are not
+currently installed will be be installed in the background (use `:LspInstallInfo` to see progress).
+
+```lua
+local lsp_installer = require("nvim-lsp-installer")
+
+lsp_installer.require_servers {
+    "tsserver",
+    "graphql",
+    "sumneko_lua"
+}
+```
+
 For more advanced use cases you may also interact with more APIs nvim-lsp-installer has to offer, for example the following (refer to `:help nvim-lsp-installer` for more docs):
 
 ```lua
